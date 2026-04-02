@@ -45,4 +45,7 @@ prisma/*.db-journal
 
 # Claude Code 本地配置 - 每人私有，不推送
 CLAUDE.md
-.claude/
+.claude/settings.json
+.claude/settings.local.json
+# 但 skills 需要团队共享
+# !.claude/skills/

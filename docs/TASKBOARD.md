@@ -22,14 +22,14 @@
 
 | ID | Story | Owner | 优先级 | 状态 | 预计工时 | 依赖 |
 |----|-------|-------|--------|------|----------|------|
-| STORY-001 | 项目初始化 | czm | P0 | 🔴 待开始 | 2h | - |
-| STORY-002 | 数据库初始化 | czm | P0 | 🔴 待开始 | 1h | STORY-001 |
-| STORY-003 | 认证模块 | czm | P0 | 🔴 待开始 | 4h | STORY-002 |
-| STORY-004 | 租户管理 | czm | P0 | 🔴 待开始 | 2h | STORY-003 |
-| STORY-005 | 组织管理 | czm | P0 | 🔴 待开始 | 4h | STORY-003 |
-| STORY-006 | 用户管理 | czm/wxp | P0 | 🔴 待开始 | 4h | STORY-003, 005, 007 |
-| STORY-007 | 角色管理 | czm/wxp | P0 | 🔴 待开始 | 3h | STORY-003, 008 |
-| STORY-008 | 权限管理 | czm | P0 | 🔴 待开始 | 4h | STORY-003 |
+| STORY-001 | 项目初始化 | wxp | P0 | 🔴 待开始 | 2h | - |
+| STORY-002 | 数据库初始化 | wxp | P0 | 🔴 待开始 | 1h | STORY-001 |
+| STORY-003 | 认证模块 | wxp | P0 | 🔴 待开始 | 4h | STORY-002 |
+| STORY-004 | 租户管理 | wxp | P0 | 🔴 待开始 | 2h | STORY-003 |
+| STORY-005 | 组织管理 | wxp | P0 | 🔴 待开始 | 4h | STORY-003 |
+| STORY-006 | 用户管理 | wxp | P0 | 🔴 待开始 | 4h | STORY-003, 005, 007 |
+| STORY-007 | 角色管理 | wxp | P0 | 🔴 待开始 | 3h | STORY-003, 008 |
+| STORY-008 | 权限管理 | wxp | P0 | 🔴 待开始 | 4h | STORY-003 |
 | STORY-009 | 字典管理 | wxp | P1 | 🔴 待开始 | 2h | STORY-003 |
 | STORY-010 | 前端布局 | wxp | P0 | 🔴 待开始 | 3h | STORY-003 |
 
