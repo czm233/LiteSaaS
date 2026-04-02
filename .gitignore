@@ -1,0 +1,48 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建输出
+dist/
+build/
+.output/
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# 测试覆盖率
+coverage/
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# Prisma
+prisma/*.db
+prisma/*.db-journal
+
+# BMad 输出 - 团队共享，需要推送
+# _bmad-output/
+
+# Claude Code 本地配置 - 每人私有，不推送
+CLAUDE.md
+.claude/

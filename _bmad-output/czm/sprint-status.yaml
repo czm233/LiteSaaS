@@ -1,0 +1,61 @@
+# Sprint 状态 - czm
+
+last_updated: 2026-04-02
+
+## 当前 Sprint
+
+sprint_number: 1
+start_date: 2026-04-02
+status: in_progress
+
+## 当前任务
+
+current_task:
+  id: STORY-001
+  title: 项目初始化
+  status: pending
+
+## 任务统计
+
+total_tasks: 10
+completed_tasks: 0
+in_progress_tasks: 0
+blocked_tasks: 0
+
+## 我的任务
+
+my_tasks:
+  - id: STORY-001
+    title: 项目初始化
+    priority: P0
+    status: pending
+  - id: STORY-002
+    title: 数据库初始化
+    priority: P0
+    status: pending
+    depends_on: STORY-001
+  - id: STORY-003
+    title: 认证模块
+    priority: P0
+    status: pending
+    depends_on: STORY-002
+  - id: STORY-004
+    title: 租户管理
+    priority: P0
+    status: pending
+    depends_on: STORY-003
+  - id: STORY-005
+    title: 组织管理
+    priority: P0
+       status: pending
+    depends_on: STORY-003
+  - id: STORY-008
+    title: 权限管理
+    priority: P0
+    status: pending
+    depends_on: STORY-003
+
+## 备注
+
+所有 Story 已创建完成，可以开始开发。
+下一步：STORY-001 项目初始化

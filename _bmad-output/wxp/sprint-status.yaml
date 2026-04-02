@@ -1,0 +1,28 @@
+# Sprint 状态 - wxp
+
+last_updated: 2026-04-01
+
+## 当前 Sprint
+
+sprint_number: 1
+start_date: 2026-04-01
+end_date: 待定
+status: waiting
+
+## 当前任务
+
+current_task:
+  id: null
+  title: 等待分配
+  status: waiting
+
+## 任务统计
+
+total_tasks: 0
+completed_tasks: 0
+in_progress_tasks: 0
+blocked_tasks: 0
+
+## 备注
+
+等待 czm 分配任务...
