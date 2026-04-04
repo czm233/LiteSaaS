@@ -1,14 +1,68 @@
-owner: cxm
-role: collaborator
-current_sprint: Sprint 1
-assigned_stories:
-  - STORY-002
-  - STORY-003
-  - STORY-004
-  - STORY-005
-  - STORY-006
-  - STORY-007
-  - STORY-008
-  - STORY-009
-  - STORY-010
-status: ready  # STORY-001 已完成，可以开始 STORY-002
+# Sprint 状态 - cxm
+
+last_updated: 2026-04-04
+
+## 当前 Sprint
+
+sprint_number: 1
+start_date: 2026-04-04
+end_date: 待定
+status: in_progress
+
+## 当前任务
+
+current_task:
+  id: null
+  title: 等待分配
+  status: waiting
+
+## 任务统计
+
+total_tasks: 9
+completed_tasks: 0
+in_progress_tasks: 0
+blocked_tasks: 8
+review_tasks: 1
+
+## 我的任务
+
+my_tasks:
+  - id: STORY-002
+    title: 数据库初始化
+    priority: P0
+    status: review
+  - id: STORY-003
+    title: 认证模块
+    priority: P0
+    status: pending
+    depends_on: STORY-002
+  - id: STORY-004
+    title: 租户管理
+    priority: P0
+    status: pending
+    depends_on: STORY-003
+  - id: STORY-005
+    title: 组织管理
+    priority: P0
+    status: pending
+    depends_on: STORY-003
+  - id: STORY-006
+    title: 角色管理
+    priority: P0
+    status: pending
+  - id: STORY-007
+    title: 用户管理
+    priority: P0
+    status: pending
+  - id: STORY-008
+    title: 权限管理
+    priority: P0
+    status: pending
+  - id: STORY-009
+    title: 字典管理
+    priority: P0
+    status: pending
+  - id: STORY-010
+    title: 登录页面
+    priority: P0
+    status: pending

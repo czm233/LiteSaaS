@@ -1,13 +1,134 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
+}
+
+model Tenant {
+  id        String   @id @default(cuid())
+  name      String
+  code      String   @unique
+  status    Int      @default(1)
+  users     User[]
+  orgs      Organization[]
+  roles     Role[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("tenants")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  tenantId     String
+  username     String
+  password     String
+  name         String
+  email        String?
+  phone        String?
+  status       Int           @default(1)
+  level        Int           @default(5)
+  tenant       Tenant        @relation(fields: [tenantId], references: [id])
+  userOrgRoles UserOrgRole[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@unique([tenantId, username])
+  @@map("users")
+}
+
+model Organization {
+  id             String         @id @default(cuid())
+  tenantId       String
+  parentId       String?
+  name           String
+  code           String
+  level          Int
+  path           String
+  sort           Int            @default(0)
+  tenant         Tenant         @relation(fields: [tenantId], references: [id])
+  parent         Organization?  @relation("OrgTree", fields: [parentId], references: [id])
+  children       Organization[] @relation("OrgTree")
+  userOrgRoles   UserOrgRole[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("organizations")
+}
+
+model Role {
+  id          String           @id @default(cuid())
+  tenantId    String
+  name        String
+  code        String
+  description String?
+  tenant      Tenant           @relation(fields: [tenantId], references: [id])
+  permissions RolePermission[]
+  userOrgRoles UserOrgRole[]
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@unique([tenantId, code])
+  @@map("roles")
+}
+
+model Permission {
+  id        String          @id @default(cuid())
+  tenantId  String?
+  type      String          // menu, button, data
+  code      String
+  name      String
+  parentId  String?
+  path      String?
+  sort      Int             @default(0)
+  parent    Permission?     @relation("PermTree", fields: [parentId], references: [id])
+  children  Permission[]    @relation("PermTree")
+  roles     RolePermission[]
+  createdAt DateTime        @default(now())
+
+  @@unique([tenantId, code])
+  @@map("permissions")
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model UserOrgRole {
+  id             String       @id @default(cuid())
+  userId         String
+  organizationId String
+  roleId         String
+  dataScope      String       @default("self") // all, org_and_below, self
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  role           Role         @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  createdAt      DateTime     @default(now())
+
+  @@unique([userId, organizationId])
+  @@map("user_org_roles")
+}
+
+model Dict {
+  id        String   @id @default(cuid())
+  tenantId  String
+  type      String
+  code      String
+  name      String
+  value     String
+  sort      Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, type, code])
+  @@map("dicts")
 }
