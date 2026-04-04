@@ -16,14 +16,22 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.32.1",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/engines",
+      "prisma"
+    ]
+  },
   "dependencies": {
     "@koa/cors": "^5.0.0",
     "@koa/router": "^15.4.0",
+    "@prisma/client": "^7.6.0",
     "koa": "^3.2.0",
     "koa-body": "^7.0.1",
     "koa-logger": "^4.0.0"
   },
   "devDependencies": {
+    "dotenv": "^17.4.0",
     "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",

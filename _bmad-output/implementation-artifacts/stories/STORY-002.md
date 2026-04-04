@@ -2,7 +2,7 @@
 
 ## 基本信息
 - **Owner**: cxm
-- **状态**: 可开始
+- **状态**: 待审核
 - **优先级**: P0
 - **预计工时**: 1小时
 - **依赖**: STORY-001
@@ -26,9 +26,17 @@
 - 命令：`pnpm db:push`
 
 ## 验收标准
-- [ ] Prisma Schema 已创建
-- [ ] 数据库表已创建
-- [ ] `pnpm db:studio` 可查看表结构
+- [x] Prisma Schema 已创建
+- [x] 数据库表已创建
+- [x] `pnpm db:studio` 可查看表结构
+
+## 完成记录
+- **完成日期**: 2026-04-04
+- **实际工时**: 1小时
+
+### 变更的文件
+- `back-end/prisma/schema.prisma` — 创建 8 个 model（Tenant, User, Organization, Role, Permission, RolePermission, UserOrgRole, Dict）
+- `back-end/package.json` — 新增 @prisma/client、dotenv 依赖，配置 pnpm onlyBuiltDependencies
 
 ## 相关文档
 - [架构文档 - 数据库设计](../architecture.md#3-数据库设计)
