@@ -1,0 +1,14 @@
+owner: cxm
+role: collaborator
+current_sprint: Sprint 1
+assigned_stories:
+  - STORY-002
+  - STORY-003
+  - STORY-004
+  - STORY-005
+  - STORY-006
+  - STORY-007
+  - STORY-008
+  - STORY-009
+  - STORY-010
+status: ready  # STORY-001 已完成，可以开始 STORY-002
