@@ -37,7 +37,7 @@ export async function login(tenantCode, username, password) {
 
   // 生成 JWT
   const token = jwt.sign(
-    { userId: user.id, tenantId: tenant.id, username: user.username },
+    { userId: user.id, tenantId: tenant.id, username: user.username, level: user.level },
     JWT_SECRET,
     { expiresIn: JWT_EXPIRES_IN },
   );
