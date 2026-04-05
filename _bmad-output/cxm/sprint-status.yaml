@@ -22,7 +22,7 @@ total_tasks: 9
 completed_tasks: 1
 in_progress_tasks: 0
 blocked_tasks: 7
-review_tasks: 0
+review_tasks: 1
 
 ## 我的任务
 
@@ -34,7 +34,7 @@ my_tasks:
   - id: STORY-003
     title: 认证模块
     priority: P0
-    status: pending
+    status: review
   - id: STORY-004
     title: 租户管理
     priority: P0

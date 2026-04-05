@@ -1,8 +1,12 @@
-const Koa = require('koa');
-const Router = require('@koa/router');
-const logger = require('koa-logger');
-const { koaBody } = require('koa-body');
-const cors = require('@koa/cors');
+import 'dotenv/config';
+
+import Koa from 'koa';
+import Router from '@koa/router';
+import logger from 'koa-logger';
+import { koaBody } from 'koa-body';
+import cors from '@koa/cors';
+
+import authRoutes from './routes/auth.js';
 
 const app = new Koa();
 const router = new Router();
@@ -18,6 +22,7 @@ router.get('/api/health', (ctx) => {
 });
 
 // 注册路由
+app.use(authRoutes.routes()).use(authRoutes.allowedMethods());
 app.use(router.routes()).use(router.allowedMethods());
 
 // 启动服务器
@@ -26,4 +31,4 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-module.exports = app;
+export default app;
