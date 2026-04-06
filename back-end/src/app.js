@@ -7,6 +7,10 @@ import { koaBody } from 'koa-body';
 import cors from '@koa/cors';
 
 import authRoutes from './routes/auth.js';
+import tenantRoutes from './routes/tenant.js';
+import organizationRoutes from './routes/organization.js';
+import dictRoutes from './routes/dict.js';
+import permissionRoutes from './routes/permission.js';
 
 const app = new Koa();
 const router = new Router();
@@ -23,6 +27,10 @@ router.get('/api/health', (ctx) => {
 
 // 注册路由
 app.use(authRoutes.routes()).use(authRoutes.allowedMethods());
+app.use(tenantRoutes.routes()).use(tenantRoutes.allowedMethods());
+app.use(organizationRoutes.routes()).use(organizationRoutes.allowedMethods());
+app.use(dictRoutes.routes()).use(dictRoutes.allowedMethods());
+app.use(permissionRoutes.routes()).use(permissionRoutes.allowedMethods());
 app.use(router.routes()).use(router.allowedMethods());
 
 // 启动服务器
