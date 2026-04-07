@@ -11,6 +11,8 @@ import tenantRoutes from './routes/tenant.js';
 import organizationRoutes from './routes/organization.js';
 import dictRoutes from './routes/dict.js';
 import permissionRoutes from './routes/permission.js';
+import roleRoutes from './routes/role.js';
+import userRoutes from './routes/user.js';
 
 const app = new Koa();
 const router = new Router();
@@ -31,6 +33,8 @@ app.use(tenantRoutes.routes()).use(tenantRoutes.allowedMethods());
 app.use(organizationRoutes.routes()).use(organizationRoutes.allowedMethods());
 app.use(dictRoutes.routes()).use(dictRoutes.allowedMethods());
 app.use(permissionRoutes.routes()).use(permissionRoutes.allowedMethods());
+app.use(roleRoutes.routes()).use(roleRoutes.allowedMethods());
+app.use(userRoutes.routes()).use(userRoutes.allowedMethods());
 app.use(router.routes()).use(router.allowedMethods());
 
 // 启动服务器
